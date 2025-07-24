@@ -1,0 +1,224 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light;
+  color: #213547;
+  background-color: #ffffff;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+/* Stili per tutti i titoli */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 0 0;
+  font-weight: 600;
+  color: #1a202c;
+}
+
+h2 {
+  font-size: 2.4em;
+  line-height: 1.2;
+}
+
+h3 {
+  font-size: 1.8em;
+  line-height: 1.3;
+}
+
+h4 {
+  font-size: 1.4em;
+  line-height: 1.4;
+}
+
+h5 {
+  font-size: 1.2em;
+  line-height: 1.5;
+}
+
+h6 {
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+/* Stili per i link */
+a {
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:focus {
+  outline: 2px solid #63b3ed;
+  outline-offset: 2px;
+}
+
+a:visited {
+}
+
+/* Stili per i paragrafi */
+p {
+  margin: 0 0 1rem 0;
+  line-height: 1.6;
+}
+
+/* Stili per le liste */
+ul,
+ol {
+  margin: 0 0 1rem 0;
+  padding-left: 1.5rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+/* Stili per immagini responsive */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Stili per i form */
+input,
+textarea,
+select {
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: #3182ce;
+  box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
+}
+
+/* Stili per il testo di enfasi */
+strong,
+b {
+  font-weight: 600;
+}
+
+em,
+i {
+  font-style: italic;
+}
+
+/* Stili per le citazioni */
+blockquote {
+  margin: 1rem 0;
+  padding: 1rem;
+  border-left: 4px solid #3182ce;
+  background-color: #f7fafc;
+  font-style: italic;
+}
+
+/* Stili per il codice inline */
+code {
+  background-color: #f1f5f9;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9em;
+  color: #e53e3e;
+}
+
+/* Utility classes */
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+.mb-3 {
+  margin-bottom: 0.75rem;
+}
+.mb-4 {
+  margin-bottom: 1rem;
+}
+.mb-5 {
+  margin-bottom: 1.25rem;
+}
+
+.mt-1 {
+  margin-top: 0.25rem;
+}
+.mt-2 {
+  margin-top: 0.5rem;
+}
+.mt-3 {
+  margin-top: 0.75rem;
+}
+.mt-4 {
+  margin-top: 1rem;
+}
+.mt-5 {
+  margin-top: 1.25rem;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
