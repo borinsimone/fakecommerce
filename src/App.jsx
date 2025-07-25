@@ -4,6 +4,8 @@ import { CartProvider } from './contexts/CartContext';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Products from './pages/Products';
+import Categories from './pages/Categories';
+import ProductDetail from './pages/ProductDetail';
 import Login from './pages/Login';
 import Cart from './pages/Cart';
 import ProtectedRoute from './components/ProtectedRoute';
@@ -25,6 +27,14 @@ function App() {
                 <Route
                   path='/products'
                   element={<Products />}
+                />
+                <Route
+                  path='/products/:id'
+                  element={<ProductDetail />}
+                />
+                <Route
+                  path='/categories'
+                  element={<Categories />}
                 />
                 <Route
                   path='/login'

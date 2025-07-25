@@ -1,6 +1,6 @@
 .navbar {
   background: #fff;
-
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -13,17 +13,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
-.link-container {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  margin: 20px;
-  margin-right: auto;
-}
+
 .navbar-brand {
   text-decoration: none;
   color: #333;
+  z-index: 1001;
 }
 
 .navbar-brand h2 {
@@ -31,6 +27,42 @@
   color: #007bff;
 }
 
+/* Hamburger Button */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 1001;
+  width: 30px;
+  height: 30px;
+  justify-content: space-around;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: #333;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Navigation Menu */
 .navbar-menu {
   display: flex;
   align-items: center;
@@ -112,16 +144,128 @@
   background: #0056b3;
 }
 
+.link-container {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Overlay per chiudere il menu */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: none;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
   .navbar-container {
     padding: 1rem;
   }
 
+  /* Mostra l'hamburger button */
+  .hamburger {
+    display: flex;
+  }
+
+  /* Nascondi il menu normale su mobile */
   .navbar-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 300px;
+    height: 100vh;
+    background: #fff;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 80px 2rem 2rem;
+    gap: 2rem;
+    transition: right 0.3s ease;
+    z-index: 1000;
+  }
+
+  /* Menu attivo - slide in da destra */
+  .navbar-menu.active {
+    right: 0;
+  }
+
+  /* Mostra overlay quando menu è attivo */
+  .navbar-menu.active ~ .menu-overlay {
+    display: block;
+  }
+
+  /* Link container in verticale */
+  .link-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    width: 100%;
+  }
+
+  /* Navbar actions in verticale */
+  .navbar-actions {
+    flex-direction: column;
+    align-items: flex-start;
     gap: 1rem;
+    width: 100%;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+  }
+
+  /* Link più grandi su mobile */
+  .navbar-link {
+    font-size: 1.1rem;
+    padding: 0.5rem 0;
+    width: 100%;
+  }
+
+  /* User menu layout mobile */
+  .user-menu {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    width: 100%;
   }
 
   .user-name {
-    display: none;
+    display: block;
+    font-size: 1rem;
+  }
+
+  /* Button styles mobile */
+  .logout-btn,
+  .login-btn {
+    width: 100%;
+    text-align: center;
+    padding: 0.75rem;
+    font-size: 1rem;
+  }
+
+  /* Cart badge adjustment */
+  .cart-link {
+    font-size: 1.2rem;
+  }
+}
+
+/* Tablet responsive */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .navbar-container {
+    padding: 1rem 1.5rem;
+  }
+
+  .navbar-menu {
+    gap: 1.5rem;
+  }
+
+  .link-container {
+    gap: 1.2rem;
   }
 }

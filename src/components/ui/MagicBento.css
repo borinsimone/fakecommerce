@@ -91,6 +91,22 @@
   position: absolute;
   right: -20%;
 }
+img[src*='bracciale'] {
+  height: 300px;
+  object-fit: contain;
+}
+img[src*='laptop'] {
+  height: 250px;
+  object-fit: contain;
+}
+img[src*='camicia'] {
+  height: 200px;
+  object-fit: contain;
+}
+img[src*='vestito'] {
+  height: 400px;
+  width: auto;
+}
 .cta {
   background-color: red;
   z-index: 2;
@@ -139,6 +155,23 @@
 .card--text-autohide .card__description {
   -webkit-line-clamp: var(--clamp-desc);
   line-clamp: var(--clamp-desc);
+}
+
+.card-link {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  z-index: 10;
+}
+
+.card-link:hover {
+  color: inherit;
+  text-decoration: none;
 }
 
 @media (max-width: 599px) {
@@ -253,4 +286,60 @@
 .bento-section {
   position: relative;
   user-select: none;
+}
+
+/* Additional styles for cards without images */
+.card:nth-child(4):not(:has(.card__image[src])),
+.card:nth-child(5):not(:has(.card__image[src])),
+.card:nth-child(6):not(:has(.card__image[src])) {
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-secondary)
+  ) !important;
+}
+
+.card:nth-child(4) {
+  --color-primary: #8b5cf6;
+  --color-secondary: #a855f7;
+}
+
+.card:nth-child(4)::before {
+  content: '💎';
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  font-size: 3rem;
+  opacity: 0.3;
+  z-index: 1;
+}
+
+.card:nth-child(5) {
+  --color-primary: #2bd06f;
+  --color-secondary: #34d58e;
+}
+
+.card:nth-child(5)::before {
+  content: '👔';
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  font-size: 3rem;
+  opacity: 0.3;
+  z-index: 1;
+}
+
+.card:nth-child(6) {
+  --color-primary: #167eff;
+  --color-secondary: #2d8bff;
+}
+
+.card:nth-child(6)::before {
+  content: '👗';
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  font-size: 3rem;
+  opacity: 0.3;
+  z-index: 1;
 }

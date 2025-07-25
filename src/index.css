@@ -74,6 +74,7 @@ a {
 
 a:hover {
   text-decoration: none;
+  color: #e53e3e !important;
 }
 
 a:focus {

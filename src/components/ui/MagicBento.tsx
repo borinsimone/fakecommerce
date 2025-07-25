@@ -1,9 +1,13 @@
 import React, { useRef, useEffect, useCallback, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
 import './MagicBento.css';
 import cuffiette from '../../assets/prodotti/cuffiette.png';
 import smartwatches from '../../assets/prodotti/smartwatches.png';
 import laptop from '../../assets/prodotti/laptop.png';
+import bracciale from '../../assets/prodotti/bracciale.png';
+import camicia from '../../assets/prodotti/camicia.png';
+import vestito from '../../assets/prodotti/vestito.png';
 export interface BentoCardProps {
   color?: string;
   title?: string;
@@ -16,6 +20,7 @@ export interface BentoCardProps {
   three?: string;
   imgSrc?: string;
   imgAlt?: string;
+  linkTo?: string;
 }
 
 export interface BentoProps {
@@ -40,47 +45,51 @@ const MOBILE_BREAKPOINT = 768;
 const cardData: BentoCardProps[] = [
   {
     color: '#1e1e1e',
-
-    one: 'enjoi',
-    two: 'with',
+    one: 'enjoy',
+    two: 'wireless',
     three: 'earphones',
     imgSrc: cuffiette,
+    linkTo: '/products?category=electronics',
   },
   {
     color: '#fdc62e',
-    one: 'only',
-    two: 'wear',
-    three: 'gadget',
+    one: 'smart',
+    two: 'wearable',
+    three: 'gadgets',
     imgSrc: smartwatches,
+    linkTo: '/products?category=electronics',
   },
   {
     color: '#be3c49',
-
-    one: 'trend',
-    two: 'devices',
-    three: 'laptop',
+    one: 'powerful',
+    two: 'computing',
+    three: 'laptops',
     imgSrc: laptop,
+    linkTo: '/products?category=electronics',
   },
   {
     color: '#8b5cf6',
-    one: 'best',
-    two: 'gaming',
-    three: 'console',
-    imgSrc: '', // Add your console image import here
+    one: 'luxury',
+    two: 'elegant',
+    three: 'jewelry',
+    imgSrc: bracciale, // We'll style this with CSS instead
+    linkTo: '/products?category=jewelery',
   },
   {
     color: '#2bd06f',
-    one: 'play',
-    two: 'game',
-    three: 'oculus',
-    imgSrc: '', // Add your oculus image import here
+    one: 'stylish',
+    two: 'modern',
+    three: "men's wear",
+    imgSrc: camicia, // We'll style this with CSS instead
+    linkTo: "/products?category=men's clothing",
   },
   {
     color: '#167eff',
-    one: 'sound',
-    two: 'amazing',
-    three: 'speaker',
-    imgSrc: '', // Add your speaker image import here
+    one: 'trendy',
+    two: 'fashion',
+    three: "women's",
+    imgSrc: vestito, // We'll style this with CSS instead
+    linkTo: "/products?category=women's clothing",
   },
 ];
 
@@ -613,6 +622,24 @@ const MagicBento: React.FC<BentoProps> = ({
           };
 
           if (enableStars) {
+            const CardContent = (
+              <>
+                <div className='card__content'>
+                  <div className='one'>{card.one}</div>
+                  <div className='two'>{card.two}</div>
+                  <div className='three'>{card.three}</div>
+                </div>
+                {card.imgSrc && (
+                  <img
+                    className='card__image'
+                    src={card.imgSrc}
+                    alt={card.imgAlt || `${card.one} ${card.two} ${card.three}`}
+                  />
+                )}
+                <div className='cta'>Explore</div>
+              </>
+            );
+
             return (
               <ParticleCard
                 key={index}
@@ -624,17 +651,16 @@ const MagicBento: React.FC<BentoProps> = ({
                 clickEffect={clickEffect}
                 enableMagnetism={enableMagnetism}
               >
-                <div className='card__content'>
-                  <div className='one'>{card.one}</div>
-                  <div className='two'>{card.two}</div>
-                  <div className='three'>{card.three}</div>
-                </div>
-                <img
-                  className='card__image'
-                  src={card.imgSrc}
-                  alt={card.imgAlt}
-                />
-                <div className='cta'>Discover</div>
+                {card.linkTo ? (
+                  <Link
+                    to={card.linkTo}
+                    className='card-link'
+                  >
+                    {CardContent}
+                  </Link>
+                ) : (
+                  CardContent
+                )}
               </ParticleCard>
             );
           }
