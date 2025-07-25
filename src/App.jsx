@@ -20,26 +20,11 @@ function App() {
             <Navbar />
             <main>
               <Routes>
-                <Route
-                  path='/'
-                  element={<Home />}
-                />
-                <Route
-                  path='/products'
-                  element={<Products />}
-                />
-                <Route
-                  path='/products/:id'
-                  element={<ProductDetail />}
-                />
-                <Route
-                  path='/categories'
-                  element={<Categories />}
-                />
-                <Route
-                  path='/login'
-                  element={<Login />}
-                />
+                <Route path='/' element={<Home />} />
+                <Route path='/products' element={<Products />} />
+                <Route path='/products/:id' element={<ProductDetail />} />
+                <Route path='/categories' element={<Categories />} />
+                <Route path='/login' element={<Login />} />
                 <Route
                   path='/cart'
                   element={

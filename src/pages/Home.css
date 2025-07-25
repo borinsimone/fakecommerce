@@ -59,14 +59,23 @@ section .header {
   color: white;
   /* line-height: 10rem; */
 }
-.hero-content img {
+.hero-content figure {
+  position: absolute;
+  left: 50%;
+  top: -30px;
   width: 100%;
   max-width: 400px;
-
-  position: absolute;
-  left: 60%;
-  top: -30px;
   transform: translateX(-50%) rotate(10deg);
+}
+.hero-content img {
+  /* width: 100%;
+  max-width: 400px; */
+
+  /* position: absolute;
+  left: 60%;
+  top: -30px; */
+
+  /* transform: translateX(-50%) rotate(10deg); */
 }
 .cta-button {
   background: red;

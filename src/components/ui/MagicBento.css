@@ -13,7 +13,7 @@
 .card-grid {
   display: grid;
   gap: 0.5em;
-
+  width: 100%;
   max-width: 100%;
   font-size: clamp(1rem, 0.9rem + 0.5vw, 1.5rem);
 }
@@ -177,9 +177,6 @@ img[src*='vestito'] {
 @media (max-width: 599px) {
   .card-grid {
     grid-template-columns: 1fr;
-    width: 90%;
-    margin: 0 auto;
-    padding: 0.5em;
   }
 
   .card {

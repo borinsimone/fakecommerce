@@ -10,7 +10,6 @@ const Products = () => {
   const [loading, setLoading] = useState(true);
   const [searchParams, setSearchParams] = useSearchParams();
   const { addToCart } = useCart();
-
   const selectedCategory = searchParams.get('category');
 
   useEffect(() => {
@@ -50,7 +49,7 @@ const Products = () => {
   };
 
   if (loading) {
-    return <div className='loading'>Loading products...</div>;
+    return null; // Il PageLoader gestirà il loading
   }
 
   return (

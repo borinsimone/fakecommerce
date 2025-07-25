@@ -7,11 +7,11 @@ import cuffie from '../assets/prodotti/cuffie.png';
 import MagicBento from '../components/ui/MagicBento';
 import SpotlightCard from '../components/ui/SpotlightCard';
 import TiltedCard from '../components/ui/TiltedCard';
+
 const Home = () => {
   const [featuredProducts, setFeaturedProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -33,7 +33,7 @@ const Home = () => {
   }, []);
 
   if (loading) {
-    return <div className='loading'>Loading...</div>;
+    return <div>Loading...</div>;
   }
 
   return (
@@ -41,10 +41,25 @@ const Home = () => {
       {/* Hero Section */}
       <section className='hero'>
         <div className='hero-content'>
-          <img
+          {/* <img
             className='hero-image'
             src={cuffie}
             alt='cuffie wireless'
+          /> */}
+
+          <TiltedCard
+            imageSrc={cuffie}
+            altText='wireless headphones'
+            captionText='Wireless Headphones'
+            containerHeight='400px'
+            containerWidth='400px'
+            imageHeight='400px'
+            imageWidth='400px'
+            rotateAmplitude={12}
+            scaleOnHover={1.1}
+            showMobileWarning={false}
+            showTooltip={true}
+            displayOverlayContent={true}
           />
           <div className='hero-title'>Wireless</div>
           <div className='hero-subtitle'>HEADPHONE</div>
